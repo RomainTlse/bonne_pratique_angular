@@ -1,0 +1,109 @@
+// couleur principale
+$backgroundAnthracite = #303030;
+$colorText = #BDBDBD;
+$raspberry = #C72C48;
+
+// couleur secondaire
+$backgroundSecondary = #3D3D3D;
+$backgroundOpacity = #181818;
+$green = #7BC736;
+$blue = #22C79D;
+$pinkSecond = #7A0F22;
+$pinkHover = #AD263F;
+
+$boxWidth = 55px
+$animationDuration = 15s
+$animationStepDuration = $animationDuration / 7
+
+@keyframes slide
+  0%
+    transform translate(0, 0)
+
+  2%
+    transform translate($boxWidth, 0)
+
+
+  12.5%
+    transform translate($boxWidth, 0)
+
+  15.5%
+    transform translate(2*$boxWidth, 0)
+
+
+  25%
+    transform translate(2*$boxWidth, 0)
+
+  27%
+    transform translate(2*$boxWidth, $boxWidth)
+
+
+  37.5%
+    transform translate(2*$boxWidth, $boxWidth)
+
+  39.5%
+    transform translate($boxWidth, $boxWidth)
+
+
+  50%
+    transform translate($boxWidth, $boxWidth)
+
+  52%
+    transform translate($boxWidth, 2*$boxWidth)
+
+
+  62.5%
+    transform translate($boxWidth, 2*$boxWidth)
+
+  64.5%
+    transform translate(0, 2*$boxWidth)
+
+
+  75%
+    transform translate(0, 2*$boxWidth)
+
+  77%
+    transform translate(0, $boxWidth)
+
+
+  87.5%
+    transform translate(0, $boxWidth)
+
+  89.5%
+    transform translate(0, 0)
+
+
+  100%
+    transform translate(0, 0)
+
+
+
+@keyframes gradient1
+  from
+    stop-color $green
+
+  50%
+    stop-color $pinkSecond
+
+  to
+    stop-color $green
+
+
+@keyframes gradient2
+  from
+    stop-color $blue
+
+  50%
+    stop-color $raspberry
+
+  to
+    stop-color $blue
+
+
+
+@keyframes rotate
+  from
+    transform rotate(0deg)
+
+  to
+    transform rotate(360deg)
+

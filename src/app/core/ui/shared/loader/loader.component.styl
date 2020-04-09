@@ -1,0 +1,69 @@
+@import 'variables';
+
+.section--loader
+  width 100%
+  height 100%
+  position absolute
+  top 0
+  z-index 10
+  display flex
+  -webkit-box-align center
+
+  &:after
+    width 100%
+    height 100vh
+    content ''
+    background-color #303030
+    opacity 0.9
+    z-index -1
+    position absolute
+    top 0
+
+  .container--loader
+    height 150px
+    width 500px
+    margin auto
+
+    svg#loading
+      display block
+      margin auto
+      width 165px
+      height 165px
+      transform rotate(180deg)
+      animation rotate $animationDuration / 2 linear 0s infinite
+
+      #gradient > stop[offset="0%"]
+        animation gradient1 $animationDuration ease 0s infinite
+
+      #gradient > stop[offset="100%"]
+        animation gradient2 $animationDuration ease 0s infinite
+
+      .rect
+        animation slide $animationDuration ease infinite
+
+      #rect1
+        animation-delay -0 * $animationStepDuration
+
+      #rect2
+        animation-delay -1 * $animationStepDuration
+
+      #rect3
+        animation-delay -2 * $animationStepDuration
+
+      #rect4
+        animation-delay -3 * $animationStepDuration
+
+      #rect5
+        animation-delay -4 * $animationStepDuration
+
+      #rect6
+        animation-delay -5 * $animationStepDuration
+
+      #rect7
+        animation-delay -6 * $animationStepDuration
+
+    .message
+      padding-top 10px
+      color white
+      font-size 20px
+      text-align center

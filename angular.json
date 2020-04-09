@@ -31,6 +31,11 @@
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.styl"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -129,3 +134,4 @@
   },
   "defaultProject": "bonne-pratique-web"
 }
+

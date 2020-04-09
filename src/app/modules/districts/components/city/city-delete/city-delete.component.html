@@ -1,0 +1,13 @@
+<section class="section--city__delete">
+  <div class="container--delete">
+    <div>
+      Êtes-vous sûr de vouloir supprimer le département
+      <div *ngIf="city">{{city.ville_nom}}</div>
+      ?
+    </div>
+    <div class="container--button">
+      <button mat-button (click)="previous()">Non</button>
+      <button mat-button (click)="delete(city.id)">Oui</button>
+    </div>
+  </div>
+</section>

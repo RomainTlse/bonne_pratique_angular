@@ -1,0 +1,83 @@
+.section--message
+  position absolute
+  z-index 1000
+
+  .message--content
+    position relative
+    width 750px
+    height 300px
+    margin 25px
+    padding 25px
+    -webkit-box-shadow 2px 2px 5px 0 rgba(0,0,0,0.5)
+    -moz-box-shadow 2px 2px 5px 0 rgba(0,0,0,0.5)
+    box-shadow 2px 2px 5px 0 rgba(0,0,0,0.5)
+    overflow hidden
+
+    .icon--message
+      font-size 300px
+      position absolute
+      top -50px
+      left -50px
+      width 250px
+      height 250px
+      opacity 0.75
+      &::before
+        background-color: #fff;
+        content: '';
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 250px;
+        width: 245px;
+        z-index: -1;
+
+    .title
+      width 100%
+      text-align right
+      font-weight 500
+      font-size 20px
+      color white
+
+    .icon--close
+      position absolute
+      right 5px
+      top 5px
+      cursor pointer
+      color white
+
+    .message--display
+      margin-top 10px
+      text-align right
+      color #2C2F30
+
+  .message--content__success
+    background-image: linear-gradient(to top, #98fb98, #82f081, #6be468, #52d94f, #32cd32);
+
+    .icon--message
+      color #088A08
+
+  .message--content__error
+    background-image: linear-gradient(to top, #f08080, #f07070, #ee5f60, #ec4d50, #e9383f);
+
+    .icon--message
+      color #BB0B0B
+
+  .message--content__warning
+    background-image: linear-gradient(to top, #fea347, #fc953a, #f9862f, #f77724, #f4661b);
+
+    .icon--message
+      color #FF4500
+      transform: rotate(30deg);
+      font-size: 275px;
+      top: -100px;
+      left: 0px;
+
+      &::before
+        left: 115px;
+        width: 75px;
+
+  .message--content__info
+    background-image: linear-gradient(to top, #b0e0e6, #8fc9d9, #71b2cd, #589ac1, #4682b4);
+
+    .icon--message
+      color #1560BD

@@ -1,0 +1,56 @@
+<section class="section--district__list">
+  <button mat-stroked-button color="primary" (click)="loadComponent('district-edit')">
+    Ajouter un d&eacute;partement
+    <fa-icon [icon]="faPlusSquare"></fa-icon>
+  </button>
+  <mat-form-field>
+    <mat-label>Filtre</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Haute Garonne">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Colonne Id -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <!-- Colonne Numéro de département -->
+      <ng-container matColumnDef="departement_code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> N° du département </th>
+        <td mat-cell *matCellDef="let row"> {{row.departement_code}}</td>
+      </ng-container>
+
+      <!-- Colonne nom du département -->
+      <ng-container matColumnDef="departement_nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+        <td mat-cell *matCellDef="let row"> {{row.departement_nom}} </td>
+      </ng-container>
+
+      <!-- Colonne Nom en MAJUSCULE -->
+      <ng-container matColumnDef="departement_nom_uppercase">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom Majuscule </th>
+        <td mat-cell *matCellDef="let row"> {{row.departement_nom_uppercase}} </td>
+      </ng-container>
+
+      <!-- Colonne Actions -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let row">
+          <fa-icon [icon]="faEdit" (click)="loadComponent('district-edit', row.id)"></fa-icon>
+          &nbsp;
+          <fa-icon [icon]="faTrashAlt" (click)="loadComponent('district-delete', row.id)"></fa-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+  </div>
+</section>
+

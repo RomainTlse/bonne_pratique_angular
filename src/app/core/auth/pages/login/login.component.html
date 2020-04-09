@@ -1,0 +1,21 @@
+<section class="section--login">
+  <div class="container--login">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="form-field-full-width">
+        <mat-label>Username</mat-label>
+        <input matInput required formControlName="username">
+        <mat-error *ngIf="username.errors.required && username.invalid && (username.dirty || username.touched)">
+            Name is required.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="form-field-full-width">
+        <mat-label>Password</mat-label>
+        <input matInput required formControlName="password">
+        <mat-error *ngIf="password.errors.required && password.invalid && (password.dirty || password.touched)">
+          Name is required.
+        </mat-error>
+      </mat-form-field>
+      <button mat-button type="submit" [disabled]="!loginForm.valid">Connexion</button>
+    </form>
+  </div>
+</section>

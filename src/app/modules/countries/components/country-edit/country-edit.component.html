@@ -1,0 +1,29 @@
+<section class="section--city__edit">
+  <form [formGroup]="countryFormGroup">
+    <mat-form-field class="form-full-width">
+      <mat-label>Code du pays</mat-label>
+      <input matInput placeholder="Ex. 31" formControlName="code" required>
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Code sur 2 lettres</mat-label>
+      <input matInput placeholder="Ex. FR" formControlName="alpha2" required>
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Code sur 3 lettres</mat-label>
+      <input matInput placeholder="Ex. FRA" formControlName="alpha3" required>
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Nom Francais</mat-label>
+      <input matInput placeholder="Ex. Haute-Garonne" formControlName="nom_en_gb" required>
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Nom en Anglais</mat-label>
+      <input matInput placeholder="Ex. 31" formControlName="nom_fr_fr" required>
+    </mat-form-field>
+    <div>
+      <!--<button mat-button matStepperPrevious>Précédent</button>-->
+      <button mat-button (click)="reset()">Réinitialisation</button>
+      <button mat-button (click)="save()">Enregistrement</button>
+    </div>
+  </form>
+</section>

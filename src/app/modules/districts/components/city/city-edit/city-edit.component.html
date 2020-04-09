@@ -1,0 +1,33 @@
+<section class="section--city__edit">
+  <form [formGroup]="cityFormGroup">
+    <mat-form-field class="form-full-width">
+      <mat-label>Code du département</mat-label>
+      <input matInput placeholder="Ex. 31" formControlName="ville_departement" required>
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Nom de la ville</mat-label>
+      <input matInput placeholder="Ex. Toulouse" formControlName="ville_nom_reel" required>
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Code Postal</mat-label>
+      <input matInput placeholder="Ex. 31000" formControlName="ville_code_postal" required>
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Population</mat-label>
+      <input matInput placeholder="Ex. 500000" formControlName="ville_population_2010" required>
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Densité</mat-label>
+      <input matInput placeholder="250.32" formControlName="ville_densite_2010" required>
+    </mat-form-field>
+    <mat-form-field class="form-full-width">
+      <mat-label>Surface</mat-label>
+      <input matInput placeholder="43" formControlName="ville_surface" required>
+    </mat-form-field>
+    <div>
+      <!--<button mat-button matStepperPrevious>Précédent</button>-->
+      <button mat-button (click)="reset()">Réinitialisation</button>
+      <button mat-button (click)="save()">Enregistrement</button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,54 @@
+<section *ngIf="messageService.messages.length" class="section--message">
+  <div *ngFor='let message of messageService.messages'>
+
+    <div class="message--content message--content__success" *ngIf="message.type=='success'">
+      <fa-icon class="icon--message" [icon]="faCheckCircle"></fa-icon>
+      <div class="title">
+        {{message.title}}
+      </div>
+      <fa-icon class="icon--close" [icon]="faWindowClose" (click)="messageService.clear()"></fa-icon>
+      <br>
+        <div class="message--display">
+          {{message.message}}
+      </div>
+    </div>
+
+    <div class="message--content message--content__error" *ngIf="message.type=='error'">
+      <fa-icon class="icon--message" [icon]="faTimesCircle"></fa-icon>
+      <div class="title">
+        {{message.title}}
+      </div>
+      <fa-icon class="icon--close" [icon]="faWindowClose" (click)="messageService.clear()"></fa-icon>
+      <br>
+      <div class="message--display">
+        {{message.message}}
+      </div>
+    </div>
+    <div class="message--content message--content__warning" *ngIf="message.type=='warning'">
+      <fa-icon class="icon--message icon--message__warning" [icon]="faExclamationTriangle"></fa-icon>
+      <div class="title">
+        {{message.title}}
+      </div>
+      <fa-icon class="icon--close" [icon]="faWindowClose" (click)="messageService.clear()"></fa-icon>
+      <br>
+      <div class="message--display">
+        {{message.message}}
+      </div>
+    </div>
+
+    <div class="message--content message--content__info" *ngIf="message.type=='information'">
+      <fa-icon class="icon--message" [icon]="faInfoCircle"></fa-icon>
+      <div class="title">
+        {{message.title}}
+      </div>
+      <fa-icon class="icon--close" [icon]="faWindowClose" (click)="messageService.clear()"></fa-icon>
+      <br>
+      <div class="message--display" [innerHTML]="message.message"></div>
+    </div>
+  </div>
+</section>
+
+<!--
+https://us.123rf.com/450wm/tmnart/tmnart2002/tmnart200200015/139250790-success-and-error-info-message-abstract-ui-banners-web-tab-template-for-aproved-and-rejected-yes-and.jpg?ver=6
+https://image.shutterstock.com/z/stock-vector-notification-alert-popup-messages-for-web-design-success-warning-error-info-message-ui-ux-1442925026.jpg
+-->

@@ -1,0 +1,40 @@
+@import 'variables';
+
+nav
+  height 75px
+  line-height 75px
+  color $colorText
+  background-color $raspberry
+  width 100%
+
+  .container--nav
+    width 100%
+
+    .container--logo
+      width 100px
+      height 75px
+      margin 0 15px
+
+      img
+        max-width 100%
+
+    .container-link
+      width 260px
+      height 75px
+
+      .link
+        width auto
+        height 100%
+        display inline-block
+        cursor pointer
+
+        a
+          padding 0 30px
+          text-decoration none
+          color $colorText
+          transition background-color .3s
+          display block
+          font-size 17px
+
+        &:hover
+          background-color $pinkHover

@@ -1,0 +1,33 @@
+<section class="section--loader" *ngIf="showLoader">
+  <div class="container--loader">
+    <svg id="loading" viewbox="0 0 165 165">
+      <defs>
+        <linearGradient id="gradient" x1="100%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#7BC736" />
+          <stop offset="100%" stop-color="#22C79D" />
+        </linearGradient>
+
+        <clipPath id="rects">
+          <rect class="rect" id="rect1" x="0" y="0" width="50" height="50" rx="2" ry="2" />
+          <rect class="rect" id="rect2" x="0" y="0" width="50" height="50" rx="2" ry="2" />
+          <rect class="rect" id="rect3" x="0" y="0" width="50" height="50" rx="2" ry="2" />
+          <rect class="rect" id="rect4" x="0" y="0" width="50" height="50" rx="2" ry="2" />
+          <rect class="rect" id="rect5" x="0" y="0" width="50" height="50" rx="2" ry="2" />
+          <rect class="rect" id="rect6" x="0" y="0" width="50" height="50" rx="2" ry="2" />
+          <rect class="rect" id="rect7" x="0" y="0" width="50" height="50" rx="2" ry="2" />
+        </clipPath>
+      </defs>
+      <rect id="container" transform="translate(80) scale(0.707, 0.707) rotate(45)" x="0" y="0" width="165" height="165" fill="url(#gradient)" clip-path="url(#rects)">
+      </rect>
+    </svg>
+    <div class="message">
+      {{message}}
+    </div>
+  </div>
+</section>
+
+
+
+<!--
+https://codemyui.com/pure-css-gradient-colour-slide-puzzle-style-loading-animation/
+-->

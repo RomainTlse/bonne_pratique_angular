@@ -1,0 +1,55 @@
+<section class="section--city__list">
+  <button mat-stroked-button color="primary" (click)="loadComponent('city-edit')">
+    Ajouter une ville
+    <fa-icon [icon]="faPlusSquare"></fa-icon>
+  </button>
+  <mat-form-field>
+    <mat-label>Filtre</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Toulouse">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Colonne Id-->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+      <!-- Colonne Nom-->
+      <ng-container matColumnDef="ville_nom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Ville </th>
+        <td mat-cell *matCellDef="let row"> {{row.ville_nom}} </td>
+      </ng-container>
+
+      <!-- Colonne Code Postal-->
+      <ng-container matColumnDef="ville_code_postal">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Code postal </th>
+        <td mat-cell *matCellDef="let row"> {{row.ville_code_postal}} </td>
+      </ng-container>
+
+      <!-- Colonne Population-->
+      <ng-container matColumnDef="ville_population_2010">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Population </th>
+        <td mat-cell *matCellDef="let row"> {{row.ville_population_2010}} </td>
+      </ng-container>
+
+      <!-- Colonne Actions -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let row">
+          <fa-icon [icon]="faEdit" (click)="loadComponent('city-edit', row.id)"></fa-icon>
+          &nbsp;
+          <fa-icon [icon]="faTrashAlt" (click)="loadComponent('city-delete', row.id)"></fa-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+  </div>
+</section>

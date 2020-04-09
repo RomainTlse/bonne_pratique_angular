@@ -1,0 +1,56 @@
+<section class="section--district__edit">
+  <mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="districtFormGroup">
+      <form [formGroup]="districtFormGroup">
+        <ng-template matStepLabel>Code et Nom du département</ng-template>
+        <mat-form-field class="form-full-width">
+          <mat-label>Code du département</mat-label>
+          <input matInput placeholder="Ex. 31" formControlName="departement_code" required>
+        </mat-form-field>
+        <mat-form-field class="form-full-width">
+          <mat-label>Nom du département</mat-label>
+          <input matInput placeholder="Ex. Haute-Garonne" formControlName="departement_nom" required>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="prefectureFormGroup">
+      <form [formGroup]="prefectureFormGroup">
+        <ng-template matStepLabel>Préfecture et Sous-Préfecture</ng-template>
+        <mat-form-field class="form-full-width">
+          <mat-label>Préfecture</mat-label>
+          <input type="text" matInput formControlName="departement_prefecture" required [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let optionPrefecture of filteredOptionsPrefecture | async; let index = index" [value]="optionPrefecture">
+              {{optionPrefecture.ville_nom}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <mat-form-field class="form-full-width">
+          <mat-label>Sous-Préfecture</mat-label>
+          <input type="text" matInput formControlName="departement_sous_prefecture" required [matAutocomplete]="autoSous">
+          <mat-autocomplete #autoSous="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let option of filteredOptionsSousPrefecture | async; let index = index" [value]="option">
+              {{option.ville_nom}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious>Précédent</button>
+          <button mat-button matStepperNext>Suivant</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Enregistrement</ng-template>
+      <p>Le département est prêt à être enregistré</p>
+      <div>
+        <button mat-button matStepperPrevious>Précédent</button>
+        <button mat-button (click)="stepper.reset()">Réinitialisation</button>
+        <button mat-button (click)="save()">Enregistrement</button>
+      </div>
+    </mat-step>
+  </mat-vertical-stepper>
+</section>
